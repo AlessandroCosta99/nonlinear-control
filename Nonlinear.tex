@@ -1,0 +1,79 @@
+\documentclass[a4paper]{report}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{pgfplots}
+\usepackage{amsmath,amssymb}
+\usepackage{amsthm}
+\usepackage{mathrsfs}
+\usepackage{mathtools}
+\usepackage{siunitx}
+\usepackage{tcolorbox}
+\usepackage{sidecap}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{subcaption}
+
+\theoremstyle{definition}
+\newtheorem{thm}{Theorem}
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}
+\newtheorem*{prop}{Proposition}
+\newtheorem*{remark}{Remark}
+\newtheorem*{lemma}{Lemma}
+\newtheorem*{note}{Note}
+
+\usepackage[pdfpagemode=None,
+colorlinks=true, 
+urlcolor=blue, 
+linkcolor=blue, 
+citecolor=blue, 
+pdfstartview=FitH]{hyperref}
+
+
+\begin{document}
+	%%%%% Adds the title page
+	\begin{titlepage}
+		\clearpage\thispagestyle{empty}
+		\centering
+		\vspace{1cm}
+		
+		% Titles
+		% Information about the University
+		{\normalsize Automation and Control Engineering \\ 
+			Dipartimento di Elettronica, Informazione e Bioingegneria \\
+			Politecnico di Milano \par}
+		\vspace{3cm}
+		{\Huge \textbf{Nonlinear Control Notes}} \\ 
+		%\vspace{1cm}
+		%{\large \textbf{xxxxx} \par}
+		\vspace{4cm}
+		{\normalsize Alessandro Costa\par}
+		\vspace{5cm}
+		
+\begin{center}
+	\includegraphics[scale=0.4]{immagini/Politecnico_di_Milano-logo-CE81376DCF-seeklogo.com}
+\end{center}
+		
+		\vspace{0.5cm}
+		
+		% Set the date
+	{\normalsize 08-03-2023 \par}		
+	\pagebreak
+		
+	\end{titlepage}
+	\tableofcontents
+	\pagebreak
+	\input{Chapter1}
+	\pagebreak
+	\input{Chapter2}
+	\pagebreak
+	\input{Chapter3}
+	\pagebreak
+	\input{Chapter4}
+	\pagebreak
+	\input{Chap5}
+	\pagebreak
+	\input{Chap6}
+	\pagebreak
+	\input{Chapter7}
+	\pagebreak
+\end{document}
