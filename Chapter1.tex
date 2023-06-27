@@ -1,6 +1,4 @@
 \chapter{Modeling}
-\section{Outline}
-In this chapter \dots
 \section{Ordinary Differential Equation modeling nonlinear continuous state and continuous time systems}
 \subsection{Nonlinear continuous state system}
 We are provided by a nonlinear continuous state system defined an ordinary differential equation which models our nonlinear system:
@@ -17,12 +15,12 @@ Given an initial set of states $Init \subset X$,
 
 An execution over the time interval $\left[0,T\right)$ is a function $x\colon\left[ 0,T\right)\to \Re^n$ such that:
 \begin{itemize}
-	\item $x(o)\in Init$
+	\item $x(0)\in Init$
 	\item x is continuous and piece wise differentiable
 	\item $x(t)=x(0)+ \int_0^t f(x(\tau))\,d\tau , \forall t \in \left[0,T\right)$
 \end{itemize}
 
-If x is a solution $\frac{dx(t)}{dt}=f(x(t)) \forall t$ for which x is differentiable.
+If x is a solution $\frac{dx}{dt}(t)=f(x(t)) \forall t$ for which x is differentiable.
 
 Before looking for a solution we have to identify if a solution exists, and if does if exists locally (a solution exist over $\left[0,\delta\right)$) or globally (a solution exist over $\left[0,\infty\right)$). And also if this solution is unique (\emph{uniqueness}).
 
@@ -31,7 +29,7 @@ Before looking for a solution we have to identify if a solution exists, and if d
 	
 	If $ f\colon\Re^n\to\Re^n$ is \emph{continuous}, then $\forall x_0$ there exist at least a solution with $x(0)=x_0$ defined on some $\left[0,\delta\right)$.
 \end{thm}
-\paragraph{Example} If we consider the \emph{sign function} we see that there is not a solution when the initial condition is initialized in 0: $x(0)=0$ because on any interval $\left[0,\delta\right)$ x cannot: remain zero, become positive, or become negsative.
+\paragraph{Example} If we consider the \emph{sign} function we see that there is not a solution when the initial condition is initialized in 0: $x(0)=0$ because on any interval $\left[0,\delta\right)$ x cannot: remain zero, become positive, or become negative.
 
 \begin{center}
 	\begin{tikzpicture} 
@@ -96,7 +94,7 @@ We have noticed that continuity is not enough for uniqueness, for this reason we
 Given the definition of \emph{Lipschitz continuity} we can state the following theorem:
 
 \begin{thm}[Local existence and uniqueness]
-	If $f\colon\Re^n\to\Re^n$ is \emph{Lipschitz continuous}, then $\forall x_0$ there exist a single solution with $x(0)=x_0$ deifned on some $ \left[0,T\right)$.
+	If $f\colon\Re^n\to\Re^n$ is \emph{Lipschitz continuous}, then $\forall x_0$ there exist a single solution with $x(0)=x_0$ defined on some $ \left[0,T\right)$.
 \end{thm}
 But since we are interested in all the time horizon we want to define \emph{global} uniqueness:
 \begin{defn} [Lipschitz conitinuity]
@@ -109,7 +107,7 @@ But since we are interested in all the time horizon we want to define \emph{glob
 Given the definition of \emph{Lipschitz continuity} we can state the following theorem:
 
 \begin{thm}[Local existence and uniqueness]
-	If $f\colon\Re^n\to\Re^n$ is \emph{Lipschitz continuous}, then $\forall x_0$ there exist a single solution with $x(0)=x_0$ deifned on $ \left[0,\infty\right)$.
+	If $f\colon\Re^n\to\Re^n$ is \emph{Lipschitz continuous}, then $\forall x_0$ there exist a single solution with $x(0)=x_0$ defined on $ \left[0,\infty\right)$.
 \end{thm}
 \paragraph{Example}
 Consider the following ODE: 
@@ -122,18 +120,16 @@ We will introduce this section with an example for describing the main elements 
 \paragraph{Example} The thermostat
 The temperature in a room is controlled by a thermostat which switch a heater on and off.
 The dynamics of the temperature x (in $\SI{}{\celsius}$):
-\begin{center}
 	\begin{itemize}
-		
-		\item[heater on:] $\dot{x} = -0.2x+6 $ for $(x\to30)$
-		\item[heater off:]$\dot{x}= -0.2x $  for $ (x\to 0)$
+		\item[H on:] $\dot{x} = -0.2x+6 $ for $(x\to30)$
+		\item[H off:]$\dot{x}= -0.2x $  for $ (x\to 0)$
 	\end{itemize} 
-\end{center}
+
 
 \begin{figure}[h]
 	\centering
 	\includegraphics[scale=0.3]{immagini/hyst}
-	\caption{Hysteretic Behavior}
+	\caption{Hysteretic behaviour}
 	\label{fig:hyst}
 \end{figure}
 
@@ -148,7 +144,7 @@ We have defined to kind of dynamics: the first one of the temperature which is \
 	\label{fig:thermostat}
 \end{figure}
 
-From the graph we can conclude that e.g in the state ON an evolution can occur untill the temperature reach the boundary of the domain ($x\le22$) and then the guard conditions, if they are respected enable the deterministic transition from ON to OFF.
+From the graph we can conclude that e.g. in the state ON an evolution can occur untill the temperature reach the boundary of the domain ($x\le22$) and then the guard conditions, if they are respected enable the deterministic transition from ON to OFF.
 
 \subsection{Hybrid Automaton}
 A hybrid automaton is a mathematical model for a dynamical system whose state $s =(q,x)$ consists of two components:
@@ -178,7 +174,7 @@ The dynamics of q and x are correlated:
 	\label{fig:trans}
 \end{figure}
 \subsubsection{Formal definition}
-A \textcolor{red}{hybrid automaton} H is a collection H=(Q,X,f\textit{Init},Dom,E,G,R)
+A \textcolor{red}{hybrid automaton} H is a collection H=(Q,X,f,\textit{Init},Dom,E,G,R)
 \begin{itemize}
 	\item $Q = \left\{q_1,q_2, \dots,q_N\right\}$ is a \textcolor{green}{set of discrete states} (modes)
 	\item $X=\Re^n$ is the \textcolor{green}{continuous state space}
@@ -192,7 +188,7 @@ A \textcolor{red}{hybrid automaton} H is a collection H=(Q,X,f\textit{Init},Dom,
 	\item $E \subseteq Q \times Q$ is a \textcolor{green}{set of transitions} (edges)
 	\item $G\colon E\to 2^X$ is a \textcolor{green}{set of guards} (guard condition)
 	\begin{itemize}
-		\item[-] for each e=(q,q'), whenever x reaches G(e) from within Dom(q), transition e is enabled
+		\item[-] for each $e=(q,q')$, whenever $x$ reaches $G(e)$ from within $Dom(q)$, transition $e$ is enabled
 	\end{itemize}
 	\item $R\colon E\times X \to 2^X$ is a \textcolor{green}{set of reset maps}
 	\begin{itemize}
@@ -207,7 +203,7 @@ A \textcolor{red}{hybrid automaton} H is a collection H=(Q,X,f\textit{Init},Dom,
 \end{figure}
 
 \paragraph{Example}
-Coming back to the previous example of the thermostat, referring to Figure \ref{fig:thermostat}, we define mathematically the components H=(Q,X,f\textit{Init},Dom,E,G,R)
+Coming back to the previous example of the thermostat, referring to Figure \ref{fig:thermostat}, we define mathematically the components H=(Q,X,f,\textit{Init},Dom,E,G,R)
 \begin{itemize}
 	\item $Q=\left\{ON,OFF\right\}$;
 	\item $X=\Re$;
@@ -283,7 +279,7 @@ A \textcolor{red}{hybrid trajectory} is a triple ($\tau$,q,x) that consist of:
 
 Finally, since we know the concept of hybrid time set and trajectory,  we can define properly an execution:
 \begin{defn} 
-	A hybrid trajectory ($\tau$,q,x) is an \textcolor{red}{execution (solution) of the hybrid automaton} H=(Q,X,f\textit{Init},Dom,E,G,R) if it satisfies the following conditions:
+	A hybrid trajectory ($\tau$,q,x) is an \textcolor{red}{execution (solution) of the hybrid automaton} H=(Q,X,f,\textit{Init},Dom,E,G,R) if it satisfies the following conditions:
 	\begin{enumerate}
 		\item \textcolor{green}{Initial condition:} $(q_0(\tau_0),x_0(\tau_0)\in \emph{Init}$
 		\item \textcolor{green}{Continuous evolution:} for all j such taht $\tau_k < \tau_k'$ 
@@ -322,7 +318,7 @@ We want to analyze the situation of a ball bouncing along vertical axis freely. 
 	\caption{Bouncing ball model}
 	\label{fig:bbautomata}
 \end{figure}
-The mathematical description of the components H=(Q,X,f\textit{Init},Dom,E,G,R) is:
+The mathematical description of the components H=(Q,X,f,\textit{Init},Dom,E,G,R) is:
 \begin{itemize}
 	\item $Q=\left\{fly\right\}$;
 	\item $X=\Re^2$;
@@ -350,9 +346,9 @@ In practice this is only a \textbf{sufficient condition} because there can be a 
 \end{remark}
 Let's give now a formal definition of this concept.
 \begin{defn}
-	Given a hybrid automaton  H=(Q,X,f\textit{Init},Dom,E,G,R), \textcolor{red}{transition states} are those states from which continuous evolution is impossible:
+	Given a hybrid automaton  H=(Q,X,f,\textit{Init},Dom,E,G,R), \textcolor{red}{transition states} are those states from which continuous evolution is impossible:
 	\[
-	Trans:=\left\{(q',x')\in Q\times X\colon \forall \delta>0,\exists t \in[0,\delta] \text{such that} \, x(t)\notin Dom(q')\right\}
+	Trans:=\left\{(q',x')\in Q\times X\colon \forall \delta>0,\exists t \in[0,\delta] \text{ such that} \, x(t)\notin Dom(q')\right\}
 	\] where x(t) is the solution of $\frac{dx}{dt}=f(q',x) \text{with} \, x(0)=x'$.
 \end{defn}
 \begin{tcolorbox}
@@ -372,10 +368,10 @@ considering the following state$\left\{(q_2,x)\colon x\le 0\right\} \subseteq Tr
 	\label{fig:non-blocking}
 \end{figure}
 \subsubsection{Deterministic vs Nondeterministic}
-\begin{defn}{Maximal execution}
+\begin{defn}[Maximal execution]
 	An execution is maximal if \emph{it cannot be extended any further}.
 \end{defn}
-A \textcolor{red}{hybrid automaton} H=(Q,X,f\textit{Init},Dom,E,G,) is \textcolor{red}{deterministic} if for all initial states $(q,x) \in \emph(Init)$ there exists \textcolor{red}{at most one maximal execution} starting at (q,x).\\
+A \textcolor{red}{hybrid automaton} H=(Q,X,f,\textit{Init},Dom,E,G,) is \textcolor{red}{deterministic} if for all initial states $(q,x) \in \emph(Init)$ there exists \textcolor{red}{at most one maximal execution} starting at (q,x).\\
 But concretely what does cause non determinism?
 
 \begin{SCfigure}[][h]
@@ -412,7 +408,7 @@ Formally speaking the conclusion of this section can be summarized like that:
 	A hybrid automaton has a \textcolor{red}{unique infinite execution} for each initial state if
 	\begin{enumerate}
 		\item $f(q,\cdot)$ is globally Lipschitz for each $q\in Q$;
-		\item for eah $(q,x)\in Trans$, there exists q' such that $(q,q')\in E$ and $x \in G(q,q')$ \\ \emph{(a discrete transition should be possible from the Trans states)
+		\item for each $(q,x)\in Trans$, there exists q' such that $(q,q')\in E$ and $x \in G(q,q')$ \\ \emph{(a discrete transition should be possible from the Trans states)
 		}
 		\item If $x \in G(q,q')$ for some $(q,q') in E$, then $(q,x) \in Trans$\\ \emph{(discrete transitions occur only when continuous evolution is not possible)}
 		\item If $(q,q'),(q,q'')\in E$, then $G(q,q')\cap G(q,q'')=\emptyset$ \\ \emph{(no multiple discrete transitions are possible at the same time)}

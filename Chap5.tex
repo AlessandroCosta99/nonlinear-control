@@ -102,17 +102,17 @@ x=\begin{bmatrix}
 \] with a linear I/O map given by the differential equation $\frac{d^ry}{dt^r}=v$ or, equivalently, by the transfer function $G(s)=\frac{1}{s^r}$.\\The system is \textcolor{red}{partially linearizable} via the state feedback control law  $u=\frac{1}{b(\xi,\eta)}(-a_{\xi}(\xi,\eta)+v)$ and the external dynamic is linearized by state feedback $\rightarrow$ \textcolor{red}{input/output linearization}.\\If we set all the state variable equal to zero at the origin $v(\cdot)=0, \xi_1(0)=\xi_2(0)=\dots=\xi_r(0)$, then $y(\cdot)=0$. Correspondingly, $\xi_1(\cdot)=\xi_2(\cdot)=\dots=\xi_r(\cdot)$, while $\eta$ evolves according to $\dot{\eta}a_{\eta}(0,\eta),\eta(0)=\eta_0$ (no zero-state observability). This hidden dynamics is called \emph{zero dynamics}.
 \begin{tcolorbox}[colframe=red!50!white, arc=0mm, colback=white]
 If the system can be rewritten in the normal form by a suitable state coordinate transformation, then, it is \textcolor{red}{input-output linearizable} via static state feedback.
-But... one must consider the behavior of the \textcolor{red}{zero dynamics}!
-\end{tcolorbox}. Making a point of what we are doing, we are considering a nonlinear system affine in the input of the following form \[\text{S}: \begin{cases}
+But... one must consider the behaviour of the \textcolor{red}{zero dynamics}!
+\end{tcolorbox}Making a point of what we are doing, we are considering a nonlinear system affine in the input of the following form \[\text{S}: \begin{cases}
 \dot{x}(t)=a(x(t))+b(x(t))u(t)\\
 y(t)=c(x(t))
 \end{cases}
 \] we want to design a static state feedback control law $u=k(x,v)$ such that the associated feedback system is linear.
 \begin{remark}
 		This procedure is different from the approximation of a nonlinear system via the tangent model around some trajectory/equilibrium.\\
-		The theory developed for a nonlinear system is affine in the input, not a general system like $\begin{cases}
+		The theory developed is for a nonlinear system affine in the input, not a general system like $\begin{cases}
 			\dot{x}=f(x,u)\\y=c(x)
-		\end{cases}$ but one can add an integrator and enlarge the state tp get a nonlinear system which is affine in the input. And in general having an integrator is good for good tracking performance.
+		\end{cases}$ but one can add an integrator and enlarge the state to get a nonlinear system which is affine in the input. And in general having an integrator is good for good tracking performance.
 
 \end{remark}
 \section{State feedback linearization}
@@ -125,11 +125,11 @@ Given a nonlinear affine system, time-invariant, SISO:
 In order to understand how to say if a system is fully or partially state feedback linearizable we have to introduce the notion of \textcolor{red}{relative degree}.
 \paragraph{Relative degree}
 \begin{defn}[Relative degree]
-	The relative degree \emph{r} of a system S is given by the minimum order of the time derivative of the output \emph{y} that is affected directly by the input \emph{u}
+	The relative degree \emph{r} of a system S is given by the minimum order of the time derivative of the output \emph{y} that is affected directly by the input \emph{u}.
 \end{defn}
 We have to compute the derivatives of the output and progressively increase the order of derivation \emph{k} till we get the (smallest) \emph{k} such that \[y^{(k)}\colon=\frac{d^ky}{dt^k}\] depends directly on the input u.\\We need first to introduce some notations and concepts.
 \begin{defn}[Regular functions]
-	Let A be on open subset of $\Re^n$ and \emph{f} a real function defined on A\[f\colon A\to\Re\].\\ Function \emph{f} is \emph{regular in $x \in A$} if it is continuously differentiable of any order in $x\colon f \in C^\infty$.\\Function f is \emph{regular in A}, if it is regular in every point of A.\\The vector-value function $f=\begin{bmatrix}
+	Let A be on open subset of $\Re^n$ and \emph{f} a real function defined on A\[f\colon A\to\Re\]\\ Function \emph{f} is \emph{regular in $x \in A$} if it is continuously differentiable of any order in $x\colon f \in C^\infty$.\\Function f is \emph{regular in A}, if it is regular in every point of A.\\The vector-value function $f=\begin{bmatrix}
 			f_1 & f_2 & \dots & f_m
 		\end{bmatrix}'\colon A \to \Re^m$ is \emph{regular} if all functions in f are regular , and it is then called \emph{regular vector field defined on A}.
 \end{defn}
@@ -145,7 +145,7 @@ f_x\colon=\frac{\partial f}{\partial x}=
 	\dots & \dots & \dots & \dots \\
 	\frac{\partial f_m}{\partial x_1} & \frac{\partial f_m}{\partial x_2} & \dots & \frac{\partial f_m}{\partial x_n}
 \end{bmatrix}
-\] We shall denote its value at some x° with $\frac{\partial f}{\partial x}(x°) \text{or} [f_x]_{x°}$
+\] We shall denote its value at some x° with $\frac{\partial f}{\partial x}(x°) \text{or} [f_x]_{x°}$.
 \end{defn}
 \begin{defn}[Lie Derivative]
 	Let A be an open set in $\Re^n$ and $f\colon A \to \Re^n$ a regular vector field on A. The \emph{Lie derivative along the vector field} is the operator 
@@ -564,7 +564,7 @@ So the closed-loop system in the new coordinate results:
 \end{equation*} where $P':=\begin{bmatrix}
 1 & 0 & 0 & \dots & 0
 \end{bmatrix}'\,\in\Re^{r-1}$.\\
-So for what concern the linear part it's isolated here by uncluding in q also the x tilda r varibale added to the w. This not yet asymo stable because it's an integrator of order r. Reasoning on the subsystem representing the linear part is however reachable and observable because if we determine the transfer funcitons $G(s)=\frac{1}{s^r}$, it has exactly r poles, with r that is  te number of $\tilde{w}$ variable.
+So for what concern the linear part it's isolated here by uncluding in q also the $\tilde{x}_r$ varibale added to the w. This not yet asymptotically stable because it's an integrator of order r. Reasoning on the subsystem representing the linear part is however reachable and observable because if we determine the transfer funcitons $G(s)=\frac{1}{s^r}$, it has exactly r poles, with r that is  te number of $\tilde{w}$ variable.
 \[
 \tilde{q}:=\begin{bmatrix}
 	\tilde{w}\\
@@ -627,14 +627,14 @@ So at the very end our u variable is:\[
 	\caption{}
 	\label{fig:flinwithpass}
 \end{figure}
-Now we can have to cases: if \textcolor{red}{r=n} in the normal canonical form description in the $\tilde{x}$	variable we will have a asymptotically stable linear system	while if \textcolor{red}{r<n} we have a zero dynamics that we have to account for in order to asses if $\tilde{x}°=0$ is indeed asymptotically stable.
-The zero dynamic is fed only by a subpart of the states and does not depend on the input but only from the state $\tilde{q}$. The input of zero dyanamic $\tilde{q}$ is going to zero equilibrium ($\tilde{q}\to0$)because we impose asymptotic stability, as the associated zero imput equilibrium. We need to know now what happens when the zero dynamics is fed by an input that goes asymptotically to zero.\\
-If we now the expression of the zero dynamics, and if it is linear we can just analyze the eigenvalues and check if the dyanamic matrix of the system is Hurwitz. But if this is not the case and the full linearization is not possible, then
+Now we can have to cases: if \textcolor{red}{r=n} in the normal canonical form description in the $\tilde{x}$	variable we will have a asymptotically stable linear system	while if \textcolor{red}{r$<$n} we have a zero dynamics that we have to account for in order to asses if $\tilde{x}°=0$ is indeed asymptotically stable.
+The zero dynamic is fed only by a subpart of the states and does not depend on the input but only from the state $\tilde{q}$. The input of zero dyanamic $\tilde{q}$ is going to zero equilibrium ($\tilde{q}\to0$) because we impose asymptotic stability, as the associated zero imput equilibrium. We need to know now what happens when the zero dynamics is fed by an input that goes asymptotically to zero.\\
+If we know the expression of the zero dynamics, and if it is linear we can just analyze the eigenvalues and check if the dyanamic matrix of the system is Hurwitz. But if this is not the case and the full linearization is not possible, then
 the I/O linearization $S^*$ of systems $S$ around the origin with pole assignment is not meaningful if $\tilde{z}=0$ is not an asymptotically stable equilibrium of the zero dynamics associated with $\tilde{q}=0$  , with a suitable domain of attraction. The results goes as follows:
 \begin{equation*}
 	\left\{
 	\begin{array}{ll}	
-		\dot{x}=a(x)+b(x)u
+		\dot{x}=a(x)+b(x)u\\
 		y=c(x)\\
 	\end{array}
 	\right. \qquad a(0)=0;\, c(0)=0
@@ -700,9 +700,9 @@ What is the practical impact of this theorem? What we could do is looking, searc
 The existence of \textcolor{red}{$c(x)$ can be characterized by necessary and sufficient conditions} on the vector fields $a(x)$ and $b(x)$.
 We need first to introduce some terminology.\\
 \begin{defn}[Lie Bracket]
-	given two vector fields $a,b:D\to\Re^n$ with $D\subseteq\Re^n$, the Lie Bracket of a and b is teh vector field $[a,b]:D\to\Re^n$ given by \[
+	given two vector fields $a,b:D\to\Re^n$ with $D\subseteq\Re^n$, the Lie Bracket of a and b is the vector field $[a,b]:D\to\Re^n$ given by \[
 	[a,b]=\frac{\partial b}{\partial x}a-\frac{\partial a }{\partial x}b=L_ab-L_ba
-	\]Note that $a\equiv b\equiv\text{constant}\Rightarrow[a,b]=0$.\\The Lie Bracket [a,b] is commonly written as $ad_ab$ where ad stands for 'adjoint'. Repeated LieBrackets can be defined recursivly by
+	\]Note that $a\equiv b\equiv\text{constant}\Rightarrow[a,b]=0$.\\The Lie Bracket [a,b] is commonly written as $ad_ab$ where ad stands for 'adjoint'. Repeated Lie Brackets can be defined recursivly by
 	\[
 	\begin{aligned}
 		&ad_a^0b=b\\
@@ -715,7 +715,7 @@ We need first to introduce some terminology.\\
 	The state feedback full linearizability problem has a solution if and only if there exists an open set $D, \, x°\in D$, such that the following conditions hold:
 	\begin{enumerate}
 		\item Vectors ${b(x),ad_a^1b(x),\dots,ad_a^{n-1}b(x)}$ are linearly independent for all $x\in D$
-		\item The set of vector fields ${b,ad_a^1b,\dots,ad_a^{n-2}b} is involutive in D$
+		\item The set of vector fields ${b,ad_a^1b,\dots,ad_a^{n-2}b}$ is involutive in D
 	\end{enumerate}
 \end{thm}
 \begin{defn}

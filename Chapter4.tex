@@ -11,11 +11,11 @@ S:\begin{cases}
 \end{cases}\qquad
 \text{with }f(0,0)=0 \qquad g(0,0)=0.
 \]
-Let's introduce now a formal definition
+Let's introduce now a formal definition:
 \begin{defn}[Passive dynamical system]
 	System S is passive if there exists a function $V(\cdot)\colon\Re^n\to\Re$ semipositive definite and continuously differentiable, called \emph{storage function}, such that:
 	\[
-	uy\ge\frac{\delta V}{\delta x}(x)f(x,u)+\epsilon u^2+\delta y^2+\rho\phi(x).\qquad \forall(x,u)\in \Re^n\times\Re)
+	uy\ge\frac{\delta V}{\delta x}(x)f(x,u)+\epsilon u^2+\delta y^2+\rho\phi(x), \qquad \forall(x,u)\in \Re^n\times\Re
 	\]with $\epsilon,\delta,\rho\in\Re^+$ and $\phi(\cdot)$ positive definite.
 \end{defn}
 In particular, system S is:
@@ -54,7 +54,7 @@ Its derivative along the trajectories of the system is given by
 \[
 \begin{aligned}
 	\dot{V}(x)&=Lx_1\dot{x}_1+Cx_2\dot{x}_2\Rightarrow x_1(u-R_2x1-x_2)+x_2(x_1-\frac{1}{R_3}x_2) \\
-	&=ux_1-R_"x_1^2-\frac{1}{R_3}x_2^2=uy-\frac{1}{R_1}u^2-R_2x_1^2-\frac{1}{R_3}x_2^2.
+	&=ux_1-R_2x_1^2-\frac{1}{R_3}x_2^2=uy-\frac{1}{R_1}u^2-R_2x_1^2-\frac{1}{R_3}x_2^2.
 \end{aligned}
 \]
 Not surprisingly we have:
@@ -107,7 +107,7 @@ Given a static function how can we immediately understand if it is passive or no
 We now want to give a different but equivalent characterization of the previous definition in terms of a sector as showed in \ref{fig:sectpass}.
 \paragraph{Equivalent characterization} The condition $\exists  \epsilon,\gamma\in \Re^+\colon uy \ge \epsilon u^2+\gamma y^2 \forall u \in \Re$ is equivalent to say that $g(\cdot)$ is within a sector in the first and third quadrant. We can formulate the concept of sector more formally exploiting the definition of sector as:
 \[
-\exists k_1,k_2 \qquad 0\le k_1\\le k_2 \le \infty \colon (y-k_1u)(k_2u-y)\ge0, \forall u \in \Re.
+\exists k_1,k_2 \qquad 0\le k_1\le k_2 \le \infty \colon (y-k_1u)(k_2u-y)\ge0, \forall u \in \Re.
 \]
 \section{Sufficient conditions for passivity}
 \subsection{Asymptotically stable linear dynamical systems}
@@ -172,12 +172,12 @@ y(t)=\gamma(x(t))
 \end{cases}
 \]
 \begin{prop}
-	If there exists V($\cdot$): $\Re^n \to \Re$ positive semidefinite and continuously differentiable function such that: \[\frac{\partial V}{\partial x}\alpha(x)\le -\delta \gamma^2, \qquad frac{\partial V}{\partial x}\beta(x) = \gamma, \forall x \in \Re^n\] for some $\delta\ge0$, then S is passive. If $\delta>0$, then S is strictly passive w.r.t the output.
+	If there exists V($\cdot$): $\Re^n \to \Re$ positive semidefinite and continuously differentiable function such that: \[\frac{\partial V}{\partial x}\alpha(x)\le -\delta \gamma^2, \qquad \frac{\partial V}{\partial x}\beta(x) = \gamma, \forall x \in \Re^n\] for some $\delta\ge0$, then S is passive. If $\delta>0$, then S is strictly passive w.r.t the output.
 \end{prop}
 \begin{proof}
 	\[
 	\begin{aligned}
-		uy-\frac{\partial V}{\partial x}(x)f(x,u)&=uy-\frac{\partial V}{\partial x}(x)()\alpha(x)+\beta(x)u)\\
+		uy-\frac{\partial V}{\partial x}(x)f(x,u)&=uy-\frac{\partial V}{\partial x}(x)(\alpha(x)+\beta(x)u)\\
 		&=u\gamma-\frac{\partial V}{\partial x}(x)\alpha(x)-\gamma(x)u\\
 		&=-\frac{\partial V}{\partial x}\alpha(x)\ge \delta\gamma^2(x)=\delta y^2, \forall(x,u)\in\Re^n\times\Re
 	\end{aligned}
@@ -204,7 +204,7 @@ But now we ask ourself why is passivity important in control? Because we show th
 	If a dynamical system S is \underline{strictly passive w.r.t. the output and \textcolor{red}{zero-state observable} }, with positive definite storage function, then x=0 is a Lyapunov \underline{asymptotically stable} equilibrium for the system with zero input.
 \end{thm}
 \begin{defn}
-	System S is zero-state observable is $x(\cdot)=0$ is the only free evolution of the state compatible with identically zero output (y=0).
+	System S is zero-state observable if $x(\cdot)=0$ is the only free evolution of the state compatible with identically zero output (y=0).
 \end{defn}
 \begin{proof}
 	Again let's use the storage function as candidate Lyapunov function.\\ If S is strictly passive w.r.t. the output and u=0, then \[\dot{V}(x)\le-\gamma g^2(x,0)\le 0.\]For the zero-observability property, $x(\cdot)=0$ is the only solution to $\dot{x}=f(x,0)$ that keeps evolving within \[S=\left\{x\in \Re^n\colon g(x,0)=0\right\}\] which proves asymptotic stability by La Salle theorem.

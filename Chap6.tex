@@ -2,7 +2,7 @@
 Nonlinear control strategy where
 \begin{itemize}
 \item a discontinuous feedback control law is designed that forces the state of the system to reach and then remain on a certain surface (the sliding surface);
-\item the dynamic of the system restricted to the sliding surface is controlled so as to produce a desired behavior, i.e., convergence to some pre-defined point.
+\item the dynamic of the system restricted to the sliding surface is controlled so as to produce a desired behaviour, i.e., convergence to some pre-defined point.
 \end{itemize}
 It is also known as sliding mode control. Let's introduce the topic with an example.
 \paragraph{Example [S.V. Emilianov]}
@@ -92,7 +92,7 @@ This dynamic is asymptotically stable since $x_1$ tends to zero.
 Given a linear-time-invariant SISO system of order n $S:\begin{cases}
 	\dot{x}=Ax+Bu\\y=Cx
 \end{cases}$ with (A,B) controllable and (A,C) observable, design a variable structure controller such that y(t) tends to some constant reference signal y°, for all y° and for all x(0). \\ A fundamental condition is to have the system S in the \emph{controllable canonical form} and if it is not given in this form we have to reconduct ourselves to that. Look Section \ref{canonical} for the controllable canonical form structure.
-\paragraph{design procedure} We can concretely identify two main steps for this technique:	
+\paragraph{Design procedure} We can concretely identify two main steps for this technique:	
 \begin{enumerate}
 	\item determine a switching function 
 	\[
@@ -135,7 +135,7 @@ S^*:\quad \begin{cases}
 So, since now we have done the first part defining a switching function s(x)  such that when the system evolves along s(x)=0 it reaches in finite time the eigenvalues we have imposed through s(x). Let's skip now to the second part.
 \section{Reaching condition}
 First of all specify the dynamics of the switching function $s(x(t))$ so that the Lyapunov-like function $V(s)=\frac{1}{2}s^2$, has negative time derivative satisfying \[\frac{dV}{dt}=s\dot{s}\le -\eta |s|,\qquad \eta>0\] then we are going to get that s becomes 0 in fintie time independently of s(0).\\
-\underline{Statement:}\\ If such condition on V(s) holds, then, for any initial condition x(0),s(x(t)) converges to zero in finite time.
+\underline{Statement:}\\ If such condition on V(s) holds, then, for any initial condition $x(0)$, $s(x(t))$ converges to zero in finite time.
 \begin{proof}
 	Given that $V(s)=\frac{1}{2}s^2$, \[\frac{dV}{dt}=s\dot{s}\le -\eta |s|=-\eta\sqrt{2V}\]The die is that if we divide the left-hand side by $2\sqrt{V}$ it will be easy to integrate and solve the equation.\[
 	\int_{0}^{t}\frac{1}{2}\frac{\dot{V}}{\sqrt{V}}dt\ge\int_{0}^{t}- \frac{\eta}{\sqrt{2}}dt\to\sqrt{V(t)}-\sqrt{V(0)}\le-\frac{\eta}{\sqrt{2}}t
@@ -278,7 +278,7 @@ Changing the hysteresis threshold form 0.02 to 0.1 we obviously see a slower swi
 	\end{subfigure}
 	\hfill
 	\label{fig:ne34}
-	\caption{Behavior at different switching rate}
+	\caption{behaviour at different switching rate}
 \end{figure}
 We increase the step size for visual reason:
 \begin{figure}[H]
@@ -288,7 +288,7 @@ We increase the step size for visual reason:
 	\label{fig:ne5}
 \end{figure}
 
-While operating on the parameter \emph{''q''}, increasing it we notice a smaller duration of the reaching phase but a larger amplitude of u excursion(from 6 to 8 in this example)
+While operating on the parameter \emph{''q''}, increasing it we notice a smaller duration of the reaching phase but a larger amplitude of u excursion (from 6 to 8 in this example).
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.4]{immagini/ne6}
@@ -331,7 +331,7 @@ Recalling the structure and the definition of observer
 	\label{fig:observer6}
 \end{figure}
 If (A,C) is observable, then, L can be designed so that A-LC has arbitrarily chosen eigenvalues and
-the estimation error converges exponentially to zero with rate $\lambda_0\in(0.min|\Re{\lambda_i(A-LC)}|)$
+the estimation error converges exponentially to zero with rate $\lambda_0\in(0,min|\Re{\lambda_i(A-LC)}|)$
 \[\|e(t)\|\le\mu e^{-\lambda_0t}\|e(0)\|,t\ge0,\qquad \forall e(0)=e_0\in \Re^n\]
 \begin{figure}[H]
 	\centering
@@ -342,14 +342,14 @@ If we choose the eigenvalues -10, -8, -6, -5 for the observer dynamics, we get: 
 L=\begin{bmatrix}
 	-0.0025 & -0.0250 & 0.0175 & 0.2550
 \end{bmatrix}'
-\] and $0<\lambda_0<5$ 
+\] and $0<\lambda_0<5$. 
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.4]{immagini/ne8}
 	\caption{}
 	\label{fig:ne8}
 \end{figure}
-Same behavior as without the observer since the estimation error is zero at time 0 and then keeps being zero.
+Same behaviour as without the observer since the estimation error is zero at time 0 and then keeps being zero.
 \begin{figure}[H]
 	\centering
 	\begin{subfigure}[b]{0.3\textwidth}
@@ -357,19 +357,19 @@ Same behavior as without the observer since the estimation error is zero at time
 		\includegraphics[scale=0.25]{immagini/ne9}
 		\label{fig:ne9}
 	\end{subfigure}
-	\hfill
+\hfill
 	\begin{subfigure}[b]{0.3\textwidth}
 		\centering
 		\includegraphics[scale=0.25]{immagini/ne10}
 		\label{fig:ne10}
 	\end{subfigure}
-	\hfill
+\hfill
 \end{figure}
-We have seen that in order to decrease the transient time $t_r$ and so making the switching faster we may increase q. But an higher q means higher oscillation which are not desired. Let's analyze better this problem
+We have seen that in order to decrease the transient time $t_r$ and so making the switching faster we may increase $q$. But an higher $q$ means higher oscillation which are not desired. Let's analyze better this problem.
 \section{Issue of the high frequency input switching}
 The high frequency switching of the control input in the sliding mode phase can be undesirable and even unacceptable.
 Possible solution:\\
-filtering the high frequency components of the control input by introducing an \textcolor{red}{auxiliary control variable \emph{v} whose integral is the actual control variable \emph{u}}. In practice an integrator is added.
+filtering the high frequency components of the control input by introducing an \textcolor{red}{auxiliary control variable \emph{v} whose integral is the actual control variable \emph{u}}. In practice an integrator is added which has the aim to filter the control variable $u$.
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.6]{"immagini/high freq"}
@@ -420,10 +420,10 @@ C & 0
 \]
 \[
 	\tilde{F}=TFT^{-1}\begin{bmatrix}
-	1 & 0 & 0 & 0 & 0 \\
 	0 & 1 & 0 & 0 & 0 \\
 	0 & 0 & 1 & 0 & 0 \\
 	0 & 0 & 0 & 1 & 0 \\
+	0 & 0 & 0 & 0 & 1 \\
 	0 &200 & -130 & -55 & -14 
 \end{bmatrix},\qquad  \tilde{G}=TG=G
 \]
@@ -453,7 +453,7 @@ Dynamics within the sliding surface:
 	2200 & 770 & 165 & 11 & 11
 \end{bmatrix}
 \end{aligned}
-\]Once we have all the coefficients this is what happens. To remind us, v is the input to $S^+$ system referencing to Figure \ref{fig:high-freq}. The integration system is initialized with 0 in the beginning and we see that when we take the integral of v, which is oscillating, we get a smoother line. If at the beginning we have the mean (which is 0) after the switching signal we get a constant because in the meantime something has been integrated. So the actual input to our system is not anymore the one we get directly the variable structure controller  to the system but it is a filtered version which is smooth.
+\]Once we have all the coefficients this is what happens. To remind us, v is the input to $S^+$ system referencing to Figure 6.20. The integration system is initialized with 0 in the beginning and we see that when we take the integral of v, which is oscillating, we get a smoother line. If at the beginning we have the mean (which is 0) after the switching signal we get a constant because in the meantime something has been integrated. So the actual input to our system is not anymore the one we get directly the variable structure controller  to the system but it is a filtered version which is smooth.
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.4]{immagini/vscnumex}
@@ -493,19 +493,19 @@ G(s)=\frac{-400s-2000}{s^5+14s^4+55s^3+130s^2-200s}=\frac{10(1+0.2s)}{s(1+0.25s+
 	\label{fig:adaptgamma}
 \end{figure}
 \section{Robustness with respect to load disturbance}
-Suppose now, that S is subjected to some load disturbance $w(t)$
+Suppose now, that S is subjected to some load disturbance $w(t)$.
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.4]{immagini/robloaddist}
 	\caption{Load disturbance $w(t)$}
 	\label{fig:robloaddist}
 \end{figure}
-The intuition here why this scheme is robust against load disturbances is: the $\dot{s}$ function is pushing \emph{s} towards 0 with the strength that keeps within \emph{q} even if \emph{s} goes to zero. So if this disturbance is attenuating the contribution of \emph{q} but never exceeding the value of \emph{q} we are  still pushing \emph{s} to become zero and get the desired Behavior. Let's prove it formally.\\
+The intuition here why this scheme is robust against load disturbances is: the $\dot{s}$ function is pushing \emph{s} towards 0 with the strength that keeps within \emph{q} even if \emph{s} goes to zero. So if this disturbance is attenuating the contribution of \emph{q} but never exceeding the value of \emph{q} we are  still pushing \emph{s} to become zero and get the desired behaviour. Let's prove it formally.\\
 \underline{Statement:}\\
-If $|w(t)|\le W<q, \forall t$, then the state will reach sliding surface $s(x)=\tilde{y}-\gamma y°=0$ in finite time and will evolve according to the dynamics of $S^*$. \\\underline{Only the time to converge is affected by \emph{w}}.
+If $|w(t)|\le W<q, \forall t$, then the state will reach sliding surface $s(x)=\tilde{y}-\gamma y°=0$ in finite time and will evolve according to the desired dynamics of $S^*$. \\\underline{Only the time to converge is affected by \emph{w}}.
 \begin{proof}
 	Consider $V(s)=\frac{1}{2}s^2$, where $s=\tilde{y}-\gamma y°$.\\ Then, \[\frac{dV}{dt}=s\dot{s}=s\dot{\tilde{y}}\] Since $\dot{\tilde{y}}=v+w$ (to be shown after) and $v=-q\, sgn(s)-r\,g\,(s)$.\\ Then \[\frac{dV}{dt}=s\dot{s}=s\dot{\tilde{y}}=-s\,q\,sgn(s)-s\,r\,g(s)+sw\]
-	since $s\,g(s)>0$ can be neglected for the upperbounding and $|w|\le W(<q)$ implies that $sw \le W|s|$ we get the upper bound \[\frac{dV}{dt}=-s\,q\,sgn(s)-s\,r\,g(s)+sw\le -(q-W)|s|\]. This implies that, for any initial condition $x(0),s(x(t))$ converges to zero in a finite time $t_r\le \frac{|s(x(0))|}{q-W}$.\\When the sliding surface  $s(x)=\beta'x-\gamma y°=\tilde{y}-\gamma y°=0$is reached , then, the system evolves on the sliding surface according to the dynamics of $S^*$ so the output \emph{y} tends to \emph{y°}. At this point we just need to show that \[\dot{\tilde{y}}=v+w\] (we gave for granted before).\\
+	since $s\,g(s)>0$ can be neglected for the upperbounding and $|w|\le W(<q)$ implies that $sw \le W|s|$ we get the upper bound \[\frac{dV}{dt}=-s\,q\,sgn(s)-s\,r\,g(s)+sw\le -(q-W)|s|.\] This implies that, for any initial condition $x(0),s(x(t))$ converges to zero in a finite time $t_r\le \frac{|s(x(0))|}{q-W}$.\\When the sliding surface  $s(x)=\beta'x-\gamma y°=\tilde{y}-\gamma y°=0$ is reached , then, the system evolves on the sliding surface according to the dynamics of $S^*$ so the output \emph{y} tends to \emph{y°}. At this point we just need to show that \[\dot{\tilde{y}}=v+w\] (we gave for granted before).\\
 We exploit the sub-system $\bar{S}$ as follow and derive the state space equation and then compute the transfer function.
 \[\bar{S}:\begin{cases}
 	\dot{x}=Ax+Bu\\

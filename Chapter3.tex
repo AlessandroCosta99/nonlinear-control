@@ -1,12 +1,12 @@
 \chapter{Lur'e Problem}
-\section{Definition of the Lur'e problem and staibility}
+\section{Definition of the Lur'e problem and stability}
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.4]{immagini/lure1}
 	\caption{Lur'e system}
 	\label{fig:lure1}
 \end{figure}
-An autonomous Lur'e system is a feedback system with a nonlinear static component (N) in series with a linear component (L). The non linear part is defined with a function $\phi$ as follows: 
+An autonomous Lur'e system is a feedback system with a nonlinear static component (N) in series with a linear component (L). The nonlinear part is defined with a function $\phi$ as follows: 
 \[
 N \colon u(t)=\phi(e(t)), \forall e 
 \]with:
@@ -96,7 +96,7 @@ k_1\le\frac{d\phi}{de}(e)\le k_2, \qquad \forall e\in\Re
 \]then the necessary condition is also sufficient.\\
 But this conjectures are proven to be false with some non-trivial counterexamples we will omit. The fundamental message here is that the solution to Lur'e problem cannot be rephrased in terms of linear system analysis.
 \linebreak
-So now we want to study some sufficient and practical condition but not sufficient: the Popov and circle criteria.
+So now we want to study some sufficient and practical condition but not necessary: the Popov and circle criteria.
 \section{Popov Criterion}
 \begin{thm}[sufficient condition for the absolute stability of S in sector \textcolor{red}{[0,k]}, Popov criterion, 1962] 
 	System S is absolutely stable in sector [0,k] if system L is asymptotically stable (necessary condition), and if there exists a real number ''q'' such that the following condition is satisfied: 
@@ -199,7 +199,7 @@ In this example $K_P=K_N\cong 0.1$ and, hence, S is absolutely stable in the sec
 \end{figure}
 In this example $K_P\cong1.1<K_N\cong1.8$, and, hence, S is absolutely stable in the sector [0,h], for any $h\in[ 0,1.1)$ while $S_L$ is asymptotically stable for any $h\in[0,1.8)$. So, is Aizerman conjecture satisfied? $\Rightarrow$ Maybe ...
 \section{Circle criterion}
-In this section we will treat the second sufficient condition for absolute condition, the circle criterion, and how is related to the Popov criterion and why can be seen as a corollary of the latter.\\
+In this section we will treat the second sufficient condition for absolute stability, the circle criterion, and how is related to the Popov criterion and why can be seen as a corollary of the latter.\\
 Since the Popov criterion holds only for nonlinear sector of the shape $[0,k]$ we need to extend the nonlinearity in the sector $[k_1,k_2]$. The trick is to transform the system with nonlinearity in  $[k_1,k_2]$  in another equivalent system but with a sector nonlinearity as the previously aimed $[0,k]$.
 \begin{figure}[H]
 	\centering
@@ -210,8 +210,8 @@ Since the Popov criterion holds only for nonlinear sector of the shape $[0,k]$ w
 \[
 \left.
 \begin{aligned}
-	& \eta(e)=\phi(e)-k_1e, e\in Re	\\
-	& k_1e\le \phi(e)\le k_2e,e \in \Re
+	& \eta(e)=\varphi(e)-k_1e, e\in Re	\\
+	& k_1e\le \varphi(e)\le k_2e,e \in \Re
 \end{aligned}
 \right\rbrace
 \to \eta(\cdot)\in \Phi_{[0,k_2-k_1]}
@@ -223,7 +223,7 @@ From the equivalence between the two systems we have that system S is absolutely
 So if q=0, then, we have to check the following conditions:
 \begin{enumerate}
 	\item F(s) is the transfer function of an asymptotically stable system;
-	\item $\Re[F(j\omega)]>-\frac{1}{k}, \forall \omega \ge0$ with $k=k_2-K_1$
+	\item $\Re[F(j\omega)]>-\frac{1}{k}, \forall \omega \ge0$ with $k=k_2-k_1$
 \end{enumerate}
 \paragraph{Condition 1} G(s) has to satisfy the necessary condition for the absolute stability of S in the sector $[k_1,k_2]$, that is the Nyquist plot of G(s) has to encircle anticlockwise $I(k_1,k_2)$, and hence the point $-\frac{1}{k}$, as many times as the number of poles of G(s) with positive real part. This leads to the result that F(s) is the transfer function of an asymptotically stable system by Nyquist criterion.
 \paragraph{Condition 2} We shall rephrase the condition $\Re[F(j\omega)]>-\frac{1}{k}, \forall \omega \ge0$ in an suitable one on the polar plot of $G(j\omega)$.\\
@@ -289,11 +289,11 @@ But now we have to formally explain what is meant with the notion of "uniform" s
 Given a dynamic system:
 \[\dot{x}(t)=f(x(t),t)\] suppose that $f(o,\cdot)=0$. The equilibrium x=0 is:
 \begin{itemize}
-	\item stable if \[\forall\epsilon>0 \exists \gamma(\epsilon,t_0)>0\colon\|x(t_0)\|>\gamma\to\|x(t)\|<\epsilon,\forall t\ge t_0\]
-	\item asymptotically stable if it is stable and \[\exists c(t_0)>0\colon \lim_{t\rightarrow \infty}x(t)=0,\forall\|x(t_0)\|)<c(t_0)	\]
-	\item uniformly stable if \[\forall\epsilon>0 \exists \gamma(\epsilon)>0\colon\|x(t_0)\|>\gamma\to\|x(t)\|<\epsilon,\forall t\ge t_0\]
-	\item uniformly asymptotically stable if it is uniformly stable and \[ \exists c >0\colon \lim_{t\rightarrow\infty}x(t)=0,\forall \|x(t_0)\|<c\] with convergence to zero that is uniform in $t_0$, i.e \[\forall\epsilon>0\exists T(\epsilon)>0\colon\|x(t)\|<\epsilon\forall t\ge t_0+T(\epsilon),\forall \|x(t_0)\|<c\]
-	\item globally uniformly asymptotically stable if it is uniformly stable and \[\forall \epsilon >0 \text{ and } c>0 \exists T(\epsilon,c)> 0\colon\|x(t)\|<\epsilon, \forall t \ge t_0+T(\epsilon,c), \forall\|x(t_0)\|<c\]
+	\item stable if \[\forall\epsilon>0 \quad \exists \, \gamma(\epsilon,t_0)>0\colon\|x(t_0)\|>\gamma\to\|x(t)\|<\epsilon,\,\forall t\ge t_0\]
+	\item asymptotically stable if it is stable and \[\exists \, c(t_0)>0\colon \lim_{t\rightarrow \infty}x(t)=0,\, \forall\|x(t_0)\|)<c(t_0)	\]
+	\item uniformly stable if \[\forall\epsilon>0 \quad \exists \, \gamma(\epsilon)>0\colon\|x(t_0)\|>\gamma\to\|x(t)\|<\epsilon,\forall t\ge t_0\]
+	\item uniformly asymptotically stable if it is uniformly stable and \[ \exists \, c >0\colon \lim_{t\rightarrow\infty}x(t)=0,\forall \|x(t_0)\|<c\] with convergence to zero that is uniform in $t_0$, i.e \[\forall\epsilon>0\quad \exists \, T(\epsilon)>0\colon\|x(t)\|<\epsilon,\,\forall t\ge t_0+T(\epsilon),\, \forall \,  \|x(t_0)\|<c\]
+	\item globally uniformly asymptotically stable if it is uniformly stable and \[\forall \epsilon >0 \text{ and } c>0\quad  \exists T(\epsilon,c)> 0\colon\|x(t)\|<\epsilon,\, \forall t \ge t_0+T(\epsilon,c), \,\forall\|x(t_0)\|<c\]
 \end{itemize}
 \subsection{Lyapunov theorem for time varying system} \label{LYAptv}
 Let's recall Lyapunov stability theorem for time varying system of the form:\[\dot{x}(t)=f(x(t),t)	\]
@@ -336,21 +336,40 @@ This time, similar as we did in Section \ref{S_L}, we substitute the nonlinear b
 	\label{fig:tvlsl}
 \end{figure}
 So if system $S$ is absolutely stable also $S_L$ is absolutely stable because we have restricted $\phi$. In this case, since the system is linear the stability it's not only absolute but also global, uniform and asymptotical. So this would entail that:\\
-S absolute stable in $[K_1,k_2]$ $\leftrightarrow$ $S_L$ is globally uniformly asymptotically stable $\forall k(\cdot)\colon k(t) \in [k_1,k_2], \forall t$.\\But why also the right-to-left implication holds true? We will show in  the following figure.
+S absolute stable in $[k_1,k_2]$ $\leftrightarrow$ $S_L$ is globally uniformly asymptotically stable $\forall k(\cdot)\colon k(t) \in [k_1,k_2], \forall t$.\\But why also the right-to-left implication holds true? We will show in  the following figure.
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.4]{immagini/tvsec}
 	\label{fig:tvsec}
 \end{figure}
-Just thing that at every time instant we have a $\phi$ function (red curve). At every time t we have a certain value of e(t) where we are going to evaluate our $\phi$ function. The line linking the point $\phi(e(t,t))$ to the origin has a slope equal to $k(t)$. So in that point $k(t)e(t)=\phi(e(t,t))$. So actually at every time t and for every e we can find a line with k(t) slope such that the previous equality holds. And this is why the necessary condition is also sufficient.
+Just think about that at every time instant we have a $\phi$ function (red curve). At every time t we have a certain value of $e(t)$ where we are going to evaluate our $\phi$ function. The line linking the point $\phi(e(t,t))$ to the origin has a slope equal to $k(t)$. So in that point $k(t)e(t)=\phi(e(t,t))$. So actually at every time t and for every e we can find a line with k(t) slope such that the previous equality holds. And this is why the necessary condition is also sufficient.
 \begin{thm}[necessary and sufficient condition]
 	System S is absolutely stable in the $[k_1, k_2]$ sector \textbf{if and only if} the linear system $S_L$ is globally uniformly asymptotically stable $\forall k(\cdot)\colon k(t) \in [k_1,k_2], \forall t$
 \end{thm}
 \begin{note}
 	Aizerman conjecture is satisfied because when we switch to the linear case we preserve time variability but... it is generally not easy to assess the stability of linear time-varying systems.
 \end{note}
+
+\begin{table}[H]
+	\centering
+\begin{tabular}{|c|c|c|}
+	\hline
+	& \textbf{Time Invariant} & \textbf{Time Varying} \\
+	\hline
+	\textbf{Robust Asymptotical Stability} & Necessary & Necessary \& Sufficient \\
+	\hline
+	\textbf{Popov criterion} & Sufficient & Sufficient (but holds only for q=0) \\
+	\hline
+	\textbf{Circle Criterion} & Sufficient & Sufficient \\
+	\hline
+	\textbf{Aizerman Conjecture} & Not always satisfied & Always satisfied \\
+	\hline
+\end{tabular}
+	\caption{Theorem comparison between time varying and time invariant sector nonliniearites}
+\end{table}
+
 \subsection{Global uniform asymptotic stability of $S_L$}
-Now what we want to do is proving the global asymptotic stability of the linear system associated to the original system S. In order to do so we will continue the preliminaries concept shown in Section \ref{LYAptv}.
+Now what we want to do is proving the global asymptotic stability of the \underline{linear system} associated to the original system S. In order to do so we will continue the preliminaries concept shown in Section \ref{LYAptv}.
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.4]{immagini/slproof}
@@ -382,14 +401,14 @@ This time the quadratic Lyapunov function must be global and common for all the 
 		& A_{k_1}'P+PA_{k_1}<0
 	\end{aligned}
 	\right\rbrace
-	\qquad S_L(k_1)\text{ and }S_L(k_2) \text{admit the same quadratic Lyapunov function } x'Px
+	\qquad S_L(k_1)\text{ and }S_L(k_2) \text{ admit the same quadratic Lyapunov function } x'Px.
 	\]
 \end{prop}
 It's computationally easy to prove this proposition because we just have to solve two LMIs. The trivial part is to prove that is enough to test only $k_1$ and $k_2$ when k indeed can arrange arbitrarily between $k_1$ and $k_2$. The point is to use the previous theorem and show that $V(t,x)=x'Px$ is a global quadratic Lyapunov function.
 \begin{proof}
 	In order to do that we express the generic dynamic matrix associated to k(t) as a combination according to a coefficient $\alpha(t)$\\
 	$A_{k(t)}=\alpha(t)A_{k_2}+(1-\alpha(t))A_{k_1}, \qquad \alpha(t)\in [0,1]$ \\
-	with $\alpha(t)=\frac{k(t)-k_1}{k_2-k_1}$
+	with $\alpha(t)=\frac{k(t)-k_1}{k_2-k_1}$.\\
 Now the trick is to compute the derivative of our candidate global Lyapunov function along the trajectory of the time invariant system whose dynamic is $A_{k(t)}$ and prove that it is upper bounded from a $W_3(x)$ positive definite
 \begin{align*}
 	\dot{V}(t,x)&=x'(A_{k(t)}'P+PA_{k(t)})x \\

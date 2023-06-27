@@ -44,8 +44,8 @@ We are not interested in general linear normed spaces but we will extend them st
 \[
 \begin{aligned}
 	&L_p:=\{v(\cdot):\Re^+\to\Re:\quad \|v(\cdot\|_p<\infty)\}\\
-	&\text{where} \|v(\cdot)\|_p:=\begin{cases}
-	\left(	int_{0}^{\infty}|v(t)|^pdt\right)^{\frac{1}{p}},& 0<p<\infty\\
+	&\text{where } \|v(\cdot)\|_p:=\begin{cases}
+	\left(\int_{0}^{\infty}|v(t)|^pdt\right)^{\frac{1}{p}},& 0<p<\infty\\
 	\sup_{t\in\Re^+}|v(t)|&p=\infty
 	\end{cases}
 \end{aligned}
@@ -67,12 +67,12 @@ We are not interested in general linear normed spaces but we will extend them st
 
 
 
-In general, a system fed by an $L_p$ input signal does not provide an output signal in $L_p$ (e.g., a dynamical system that is unstable), that leds us to \textcolor{red}{extended Lebesgue spaces}.
+In general, a system fed by an $L_p$ input signal does not provide an output signal in $L_p$ (e.g., a dynamical system that is unstable), which lead us to \textcolor{red}{extended Lebesgue spaces}.
 \paragraph{Extended Lebesgue space}
 \[
 \begin{aligned}
 	&\mathcal{L}_e:=\{v(\cdot):\Re^+\to\Re:\quad v_{\tau}(\cdot) \in \mathcal{L},\forall\,\tau \in\Re^+\}\\
-	&\text{where} v_{\tau}(\cdot) \text{is the truncation of} v(\cdot) \text{at time} \tau
+	&\text{where} v_{\tau}(\cdot) \text{is the truncation of} v(\cdot) \text{at time } \tau
 	&\begin{cases}
 		v(t), & t\in[o,\tau]\\
 		0, & t>\tau
@@ -97,7 +97,7 @@ In control we are interest only in \textcolor{red}{causal systems (operators)} b
 \paragraph{Causal operator}
 \begin{defn}
 		System S (operator H) from $\mathcal{L}_e$ to $\mathcal{L}$ is causal if \[H(u(\cdot))_{\tau}=H(u(\cdot)_{\tau})_{\tau}\qquad \forall\, u(\cdot)\in\mathcal{L}_e,\, \forall\, \tau \in \Re^+\]
-that is the Behavior of y up to time $t=\tau$ is independent of the behavior of u for $t>\tau$, for every signal $u(\cdot)$ and for every $\tau$
+that is the behaviour of y up to time $t=\tau$ is independent of the behaviour of u for $t>\tau$, for every signal $u(\cdot)$ and for every $\tau$
 \end{defn}
 \begin{figure}[H]
 	\centering
@@ -106,7 +106,7 @@ that is the Behavior of y up to time $t=\tau$ is independent of the behavior of 
 	\label{fig:causal}
 \end{figure}
 \paragraph{Weakly bounded operator}
-Our aim is to be able to describe the Behavior of the system and formalize  the notion of stability in this set-up, but before we need some notions and definitions.
+Our aim is to be able to describe the behaviour of the system and formalize  the notion of stability in this set-up, but before we need some notions and definitions.
 \begin{defn}[weakly bounded operator]
 	A causal operator $H:\mathcal{L}_e\to\mathcal{L}_e$ is weakly bounded (or with finite gain) if \[
 	\exists \hat{\gamma},\hat{\beta}\in\Re^+:\quad \|H(u(\cdot))\|\le\hat{\gamma}\|u(\cdot)\|+\hat{\beta},\,\forall\, u(\cdot)\in \mathcal{L}
